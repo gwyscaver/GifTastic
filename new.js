@@ -13,9 +13,6 @@ function createButtons() {
 }
 createButtons()
 
-
-
-
 //listening to click on buttons
 $(document).on("click", ".travelBtn", function () {
     //console.log("travel button clicked")
@@ -29,19 +26,43 @@ $(document).on("click", ".travelBtn", function () {
         .then(function (response) {
             var gifs = response.data;
 
-
+            console.log(gifs);
             $("resultsDiv").empty();
             for (let j = 0; j < gifs.length; j++) {
                 var gifDiv = $("<div>");
                 var gifRating = gifs[j].rating;
                 var p = $("<p>").text("Rating: " + gifRating);
                 var travelImage = $("<img>");
-                travelImage.attr("src", gifs[j].images.fixed_height.url);
+                // console.log(gifs[j].images.fixed_height_still.url);
+                travelImage.attr("src", gifs[j].images.fixed_height_still.url)
+                .attr("data-animate", gifs[j].images.fixed_height.url)
+                .attr("data-still", gifs[j].images.fixed_height_still.url)
+                .attr("data-state", "animate");
+
+                
 
                 gifDiv.prepend(p);
                 gifDiv.prepend(travelImage);
 
                 $(".resultsDiv").prepend(gifDiv);
+                
+                travelImage.addClass ("gifPic")
+
+                $(".gifPic").on("click", function (){
+                    var state = $(this).attr("data-state");
+                    if(state === "still") {
+                        var animatedSrc = $(this).attr("data-animate");
+                          $(this).attr("src", animatedSrc);
+                          $(this).attr("data-state", "animate");
+                          } else {
+                            var stillSrc = $(this).attr("data-still");
+                            $(this).attr("src", stillSrc);
+                            $(this).attr("data-state", "still");
+                          } 
+
+                });
+                
+                
                 
             }
             
