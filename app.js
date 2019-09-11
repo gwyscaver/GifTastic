@@ -1,4 +1,4 @@
-var topics = ["hotel", "airplane", "beach", "palm tree", "airport"]
+var topics = ["hotel", "airplane", "beach", "palm tree", "airport", "tourist", "crying kids", "florida"]
 
 //create button for the page
 function createButtons() {
@@ -37,7 +37,7 @@ $(document).on("click", ".travelBtn", function () {
                 travelImage.attr("src", gifs[j].images.fixed_height_still.url)
                 .attr("data-animate", gifs[j].images.fixed_height.url)
                 .attr("data-still", gifs[j].images.fixed_height_still.url)
-                .attr("data-state", "animate");
+                .attr("data-state", "still");
 
                 
 
@@ -48,19 +48,6 @@ $(document).on("click", ".travelBtn", function () {
                 
                 travelImage.addClass ("gifPic")
 
-                $(".gifPic").on("click", function (){
-                    var state = $(this).attr("data-state");
-                    if(state === "still") {
-                        var animatedSrc = $(this).attr("data-animate");
-                          $(this).attr("src", animatedSrc);
-                          $(this).attr("data-state", "animate");
-                          } else {
-                            var stillSrc = $(this).attr("data-still");
-                            $(this).attr("src", stillSrc);
-                            $(this).attr("data-state", "still");
-                          } 
-
-                });
                 
                 
                 
@@ -68,4 +55,17 @@ $(document).on("click", ".travelBtn", function () {
             
            
         });
+});
+$(document).on("click", ".gifPic",function (){
+    var state = $(this).attr("data-state");
+    if(state === "still") {
+        var animatedSrc = $(this).attr("data-animate");
+          $(this).attr("src", animatedSrc);
+          $(this).attr("data-state", "animate");
+          } else {
+            var stillSrc = $(this).attr("data-still");
+            $(this).attr("src", stillSrc);
+            $(this).attr("data-state", "still");
+          } 
+
 });
