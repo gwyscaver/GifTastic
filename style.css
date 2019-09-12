@@ -1,9 +1,17 @@
 
-    button,
-    div,
-    form,
-    input {
-      margin: 10px;
-      font-family: 'Poppins', sans-serif;
-      background-color: turquoise;
+    h1 {
+        text-align: center;
+        
+    }
+    button{
+        margin: 10px;
+        font-family: 'Poppins', sans-serif;
+        background-color: turquoise;
+    }
+    
+    form, input {
+        margin: 10px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        background-color: turquoise;
     }
