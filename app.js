@@ -1,4 +1,4 @@
-var topics = ["hotel", "motel", "airplane", "beach", "palm tree", "airport", "tourist", "crying kids", "florida", "beach towel", "camping"];
+var topics = ["hotel", "motel", "airplane", "beach", "palm tree", "airport", "tourist", "crying kids", "fishing", "beach towel", "camping", "rv"];
 
 //create button for the page
 function createButtons() {
