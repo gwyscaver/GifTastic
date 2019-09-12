@@ -53,6 +53,7 @@ $(document).on("click", ".travelBtn", function () {
                 .attr("data-animate", gifs[j].images.fixed_height.url)
                 .attr("data-still", gifs[j].images.fixed_height_still.url)
                 .attr("data-state", "still");
+                gifDiv.addClass ("d-inline-block");
 
                 gifDiv.prepend(p);
                 gifDiv.prepend(travelImage);
